@@ -14,15 +14,15 @@ const Table = () => {
                                     </div>
                                     <div className='col' align="center" >
                                         <p >15</p>
-                                        <p>Mon</p>
+                                        <p>Monday</p>
                                     </div>
                                     <div className='col' align="center">
                                         <p>16</p>
-                                        <p>Tue</p>
+                                        <p>Tueday</p>
                                     </div>
                                     <div className='col' align="center">
                                         <p>17</p>
-                                        <p>Wed</p>
+                                        <p>Wedday</p>
                                     </div>
                                     <div className='col' align="center">
                                         <p>18</p>
