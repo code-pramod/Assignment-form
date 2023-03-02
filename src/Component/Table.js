@@ -1,4 +1,5 @@
 import React from 'react';
+import Datecontrol from './Component/DatePicker';
 
 const Table = () => {
     return (
@@ -11,6 +12,9 @@ const Table = () => {
                                 <div className='row' >
                                     <div className='col-4'>
                                         <p align="left">Pin  Timecode</p>
+                                    </div>
+                                    <div>
+                                        <Datecontrol />
                                     </div>
                                     <div className='col' align="center" >
                                         <p >15</p>
