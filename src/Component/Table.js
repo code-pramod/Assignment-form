@@ -1,7 +1,20 @@
-import React from 'react';
-import Datecontrol from './Component/DatePicker';
+import React, { useState, useEffect } from 'react';
+import Datecontrol from './Component/datePicker';
+import axios form 'axios';
+
 
 const Table = () => {
+    const [timecode, SetTimecode] = useState([]);
+    const getTimecode = () => {
+        axios.get("localhost:8000")
+            .then((Response) => {
+                SetTimecode(Response.data)
+            });
+    }
+    useEffect(() => {
+
+    }, [timecode]);
+
     return (
         <>
             <table align='center' width="100%">
@@ -49,7 +62,7 @@ const Table = () => {
                                 </div>
                                 <hr />
                                 <div className='row'>
-                                    <div className='col-4'>
+                                    <div className='col-4' onChange={getTimecode}>
                                         <label> <b>EXTN NAB118 - Suhasini, Amit, Anu--Consulting </b></label>
                                         <p>NAB</p>
                                     </div>
