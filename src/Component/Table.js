@@ -29,7 +29,7 @@ const Table = () => {
                                     <p align="left">Pin  Timecode</p>
                                 </div>
                                 <div>
-                                    {/* <Date /> */}
+                                    {/* <Date old /> */}
                                 </div>
 
                                 <div className='col' align="center" >
