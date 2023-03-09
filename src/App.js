@@ -1,10 +1,13 @@
 // import logo from './logo.svg';
-import './App.css';
+
 import Table from './Component/Table';
+// import Date from './Component/Date';
+// import { useState } from 'react';
 // import Week from './Component/Week';
 
 
 function App() {
+
   return (
     <>
       <div className='row'>
@@ -12,8 +15,6 @@ function App() {
           <h1> My Timesheet</h1>
         </div>
       </div>
-      {/* <div><Week /></div> */}
-      <br></br>
 
       <div className="container">
         <div className="row">
@@ -39,7 +40,10 @@ function App() {
           </div>
         </div>
       </div>
-      <br></br><br></br>
+
+      <div>
+        {/* <Date /> */}
+      </div>
 
       <div>
         <Table />

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-// import Datecontrol from './DatePicker';
 import axios from 'axios';
-// import Week from './Week';
+import Date from './Component/Date';
 
 
 const Table = () => {
@@ -15,9 +14,7 @@ const Table = () => {
     }
     getTimecode();
 
-
     useEffect(() => {
-
     }, []);
 
     return (
@@ -32,12 +29,11 @@ const Table = () => {
                                     <p align="left">Pin  Timecode</p>
                                 </div>
                                 <div>
-                                    {/* <Datecontrol /> */}
+                                    {/* <Date /> */}
                                 </div>
 
                                 <div className='col' align="center" >
-                                    <p >15</p>
-                                    <p>Monday</p>
+                                    <Date />
                                 </div>
                                 <div className='col' align="center">
                                     <p>16</p>
@@ -95,9 +91,9 @@ const Table = () => {
                                     </div>
 
                                     <div className='col'>
-                                        <div className='shadow-lg p-3 mb-0'>
-                                            <input className='form-control' />
-                                        </div>
+
+                                        <input className='form-control' />
+
                                     </div>
                                 </div>
                             )}
