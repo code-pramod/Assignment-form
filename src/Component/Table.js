@@ -1,25 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Date from './Component/Date';
+import DateHeader from './DateHeader';
 
 
-const Table = () => {
+const Table = (props) => {
+
     const [timecode, setTimecode] = useState([]);
-    const getTimecode = () => {
+    useEffect(() => {
         axios.get("http://localhost:8000")
             .then((response) => {
                 console.log(response.data);
                 setTimecode(response.data)
             });
-    }
-    getTimecode();
+    }, [])
 
-    useEffect(() => {
-    }, []);
 
     return (
         <>
-
             <div className='container'>
                 <div className='row'>
                     <div className='col' >
@@ -28,46 +25,15 @@ const Table = () => {
                                 <div className='col-4'>
                                     <p align="left">Pin  Timecode</p>
                                 </div>
-                                <div>
-                                    {/* <Date old /> */}
-                                </div>
-
-                                <div className='col' align="center" >
-                                    <Date />
-                                </div>
-                                <div className='col' align="center">
-                                    <p>16</p>
-                                    <p>Tueday</p>
-                                </div>
-                                <div className='col' align="center">
-                                    <p>17</p>
-                                    <p>Wedday</p>
-                                </div>
-                                <div className='col' align="center">
-                                    <p>18</p>
-                                    <p>Thu</p>
-                                </div>
-                                <div className='col' align="center">
-                                    <p>19</p>
-                                    <p>Fri</p>
-                                </div>
-                                <div className='col' align="center">
-                                    <p>20</p>
-                                    <p>Sat</p>
-                                </div>
-                                <div className='col'>
-                                    <div className='shadow-lg p-2 mb-0'>
-                                        <p>21</p>
-                                        <p>Sun</p>
-                                    </div>
-                                </div>
+                                <DateHeader {...props} />
                             </div>
                             <hr />
+
 
                             {timecode.timecodes?.map((code) =>
 
                                 <div className='row'>
-                                    <div className='col-4' onChange={getTimecode}>
+                                    <div className='col-4'>
                                         <label> <b>{code.name}</b></label>
                                         <p>{code.project}</p>
                                     </div>
