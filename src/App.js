@@ -6,8 +6,8 @@ import { useState } from 'react';
 
 function App() {
   const d = new Date();
-  const startday = d.getDate() - d.getDay();
-  const [dates, setDates] = useState([{ date: startday + 1, day: "Monday" }, { date: startday + 2, day: "Tuesday" }, { date: startday + 3, day: "Wednesday" }, { date: startday + 4, day: "Thursday" }, { date: startday + 5, day: "Friday" }, { date: startday + 6, day: "Saturday" }, { date: startday + 7, day: "Sunday" }]);
+  // const startday = d.getDate() - d.getDay();
+  // const [dates, setDates] = useState([{ date: startday + 1, day: "Monday" }, { date: startday + 2, day: "Tuesday" }, { date: startday + 3, day: "Wednesday" }, { date: startday + 4, day: "Thursday" }, { date: startday + 5, day: "Friday" }, { date: startday + 6, day: "Saturday" }, { date: startday + 7, day: "Sunday" }]);
   const [selectedDate, setSelectedDate] = useState(d);
   const [dateview, setDateview] = useState("week");
 
@@ -18,14 +18,27 @@ function App() {
   //   // do something with the selected date
   //   // console.log(date);
 
-
-  const handleWeek = () => {
-    setDateview("week")
-  }
   const setDate = (event) => {
     setSelectedDate(new Date(event.target.value))
     console.log(new Date(event.target.value));
+    console.log(setDate);
   }
+
+  const handleWeek = () => {
+    setDateview("week")
+
+    const selectedDate = new Date(setDate);
+    const dayOfWeek = selectedDate.getDay();
+    // console.log(dayOfWeek);
+    const startDate = new Date(selectedDate);
+    // console.log(startDate);
+    startDate.setDate = (startDate.getDate() - dayOfWeek + 1);
+    console.log(startDate.getDate() - dayOfWeek + 1);
+    // const endDate = new Date(startDate);
+    // endDate.setDate(endDate.getDate() + 6);
+    console.log(startDate.getDate() - dayOfWeek + 7);
+  }
+
 
   return (
     <>
@@ -38,7 +51,7 @@ function App() {
       <div className="container">
         <div className="row">
           <div className="col">
-            <input type='date' className='form-control' onChange={(event) => setDate(event)} />
+            <input type='date' className='form-control' onChange={setDate} />
           </div>
 
           <div className="col">
