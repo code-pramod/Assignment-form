@@ -11,32 +11,30 @@ function App() {
   const [selectedDate, setSelectedDate] = useState(d);
   const [dateview, setDateview] = useState("week");
 
+  const [isDayButtonClicked, setIsDayButtonClicked] = useState(false);
 
 
 
-  // function handleDay() {
-  //   // do something with the selected date
-  //   // console.log(date);
+
 
   const setDate = (event) => {
     setSelectedDate(new Date(event.target.value))
-    console.log(new Date(event.target.value));
-    console.log(setDate);
+    // console.log(new Date(event.target.value));
+    // console.log(selectedDate);
   }
 
   const handleWeek = () => {
-    setDateview("week")
+    setDateview("week");
+    setIsDayButtonClicked(false);
+    console.log(setDateview("Week") ? "b" : "B");
 
-    const selectedDate = new Date(setDate);
-    const dayOfWeek = selectedDate.getDay();
-    // console.log(dayOfWeek);
-    const startDate = new Date(selectedDate);
-    // console.log(startDate);
-    startDate.setDate = (startDate.getDate() - dayOfWeek + 1);
-    console.log(startDate.getDate() - dayOfWeek + 1);
-    // const endDate = new Date(startDate);
-    // endDate.setDate(endDate.getDate() + 6);
-    console.log(startDate.getDate() - dayOfWeek + 7);
+
+  }
+
+  function handleDay() {
+    setDateview("Day");
+    setIsDayButtonClicked(true);
+    console.log(setDateview("Day") ? "a" : "A");
   }
 
 
@@ -56,8 +54,8 @@ function App() {
 
           <div className="col">
             <div className='btn-group' role='group'>
-              <button className='btn btn-primary'>Day</button>
-              <button className='btn btn-secondary' onClick={handleWeek}>Week</button>
+              <button className={'btn ' + (isDayButtonClicked ? 'btn-primary' : 'btn-secondary')} onClick={handleDay}>Day</button>
+              <button className={'btn ' + (isDayButtonClicked ? 'btn-secondary' : 'btn-primary')} onClick={handleWeek}>Week</button>
             </div>
           </div>
 
@@ -79,12 +77,19 @@ function App() {
       <div>
         <Table date={selectedDate} view={dateview} />
       </div>
-
-
       <button className="btn btn-success mx-1"> Close</button>
+
     </>
+
   );
 }
 
+{/* <style>
+  .selected {
+    background - color: yellow
+  }
+</style> */}
 
 export default App;
+
+

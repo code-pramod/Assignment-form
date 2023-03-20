@@ -9,7 +9,7 @@ const Table = (props) => {
     useEffect(() => {
         axios.get("http://localhost:8000")
             .then((response) => {
-                console.log(response.data);
+                // console.log(response.data);
                 setTimecode(response.data)
             });
     }, [])
@@ -55,15 +55,13 @@ const Table = (props) => {
                                     <div className='col'>
                                         <input className='form-control' />
                                     </div>
-
                                     <div className='col'>
-
                                         <input className='form-control' />
-
                                     </div>
+                                    <hr></hr>
                                 </div>
                             )}
-                            <hr />
+
                             <button>+Add time entry</button>
                         </form>
                     </div>
